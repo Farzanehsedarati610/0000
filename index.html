@@ -85,5 +85,9 @@ for (const [label, hash] of Object.entries(symbolicHashes)) {
 
 outputDiv.innerHTML += "</ul>";
 document.body.appendChild(outputDiv);
-</script>
 
+if (!window.symbolicDisplayLoaded) {
+  window.symbolicDisplayLoaded = true;
+  // run your balance script here
+}
+</script>
