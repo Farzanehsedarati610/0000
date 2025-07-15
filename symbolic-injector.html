@@ -36,6 +36,19 @@
       });
     });
 </script>
+<script>
+  const currentDomain = window.location.hostname;
+
+  fetch("https://farzanehsedarati610.github.io/0000/hash-routing-logic.json")
+    .then(r => r.json())
+    .then(data => {
+      const matchedRoutes = data[currentDomain] || [];
+
+      matchedRoutes.forEach(({ label, hash, contract, trigger }) => {
+        symbolicInject(label, hash, contract, trigger); // Live routing
+      });
+    });
+</script>
 
 </body>
 </html>

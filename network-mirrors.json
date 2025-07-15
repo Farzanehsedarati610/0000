@@ -6,3 +6,15 @@
   ]
 }
 
+fetch("network-mirrors.json")
+  .then(r => r.json())
+  .then(mirrors => {
+    mirrors.forEach(url => {
+      fetch(`${url}/hash-routing-logic.json`)
+        .then(r => r.json())
+        .then(data => {
+          // Same logic: inject symbolic blocks from each domain
+        });
+    });
+  });
+
