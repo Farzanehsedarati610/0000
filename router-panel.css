@@ -1,0 +1,25 @@
+body {
+  font-family: sans-serif;
+  background: #f5faff;
+  padding: 2em;
+}
+label {
+  font-weight: bold;
+}
+input {
+  width: 300px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+button {
+  background: #0077cc;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+code {
+  background: #eef;
+  padding: 3px;
+}
+

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Symbolic Injector</title>
+  <link rel="stylesheet" href="router-panel.css" />
+</head>
+<body>
+  <h1>🔧 Symbolic Transfer Injector</h1>
+  <label>Hash:</label><br>
+  <input id="hash" /><br><br>
+  <label>Routing:</label><br>
+  <input id="routing" /><br><br>
+  <label>Account:</label><br>
+  <input id="account" /><br><br>
+  <label>Balance ($):</label><br>
+  <input id="balance" /><br><br>
+  <button onclick="inject()">Inject Transfer Logic</button>
+  <div id="output" style="margin-top:20px;"></div>
+<button onclick="injectAllFromLedger()">Inject Full Ledger</button>
+
+  <script src="injector-logic.js"></script>
+</body>
+</html>
+

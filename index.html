@@ -1,3 +1,23 @@
+<!-- Optional CSS for injector styling -->
+<link rel="stylesheet" href="router-panel.css">
+<!-- Symbolic Hash Ledger -->
+<script src="ledger.json" type="application/json"></script>
+
+<!-- Network Mirror List -->
+<script src="network-mirrors.json" type="application/json"></script>
+
+<!-- Core Injection Logic -->
+<script src="injector-logic.js"></script>
+
+<!-- Optional: Transfer Confirmation UI Script -->
+<script src="confirm-transfer.js"></script>
+
+<!-- Optional: Registry Rewriter Script -->
+<script src="symbolic-registry.js"></script>
+
+<!-- Optional: Balance Polling Logic -->
+<script src="watchdog-poll.js"></script>
+<button onclick="injectAllFromLedger()">Inject All Transfers</button>
 
 function (); {(20f586474bf292d420bb8c5139bfb8224cda900280ffa2c95b45a33eb98e96cd)=(283977688)(339715)}
 function (); {(c1e586cecb4f643611e882c6b3638f2d51a7b6ccd4f647c305351fccde94b9b4)=(283977688)(339715)}
@@ -18,6 +38,11 @@ function (); {(a23b0d1d1e8a721623a1a85b64a353fface595030eb41ba33d8fe4a554ee59d5)
 function (); {(3842daf9315978e904e20579f52913aec3274e22b09c4fa9ddd2a2b7)=(283977688)(339715)}
 function (); {(ca4ba96c58580a9d2ddbc99d993cf0a703c366c85f608a8d9d6b3890)=(283977688)(339715)}
 function (); {(65a6745f084e7af17e1715ae9302cc14820e331af610badd3d9805cb9cd3504e)=(283977688)(339715)}
+<script src="https://cdn.jsdelivr.net/npm/codemirror@5/addon/search/searchcursor.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/codemirror@5/addon/search/search.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/codemirror@5/addon/dialog/dialog.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5/addon/dialog/dialog.css">
+
 <script>
 window.onload = () => {
   const rawText = document.body.innerText;

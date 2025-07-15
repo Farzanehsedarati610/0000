@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Refresh Sony Payroll Entities</title>
+</head>
+<body>
+  <h2>Trigger Payroll Metadata Refresh</h2>
+  <button onclick="refresh()">Run Refresh</button>
+  <pre id="output"></pre>
+
+  <script>
+    async function refresh() {
+      const orgUri = 'https://sony-music.crm.dynamics.com'; // Replace with exact Sony Music URI
+      const endpoint = `${orgUri}/api/data/v9.1/RefreshHumanResourcesVirtualEntities`;
+
+      const body = {
+        PhysicalNames: [
+          "PayrollEmployeeEntity",
+          "HcmWorkerBaseEntity",
+          "PayrollPositionEntity",
+          "PayrollPositionJobEntity",
+          "PayrollWorkerAddressEntity",
+          "HcmJobDetailEntity",
+          "HcmCompFixedPlanTableEntity",
+          "PayrollFixedCompensationPlanEntity",
+          "HcmEmploymentDetailEntity"
+        ]
+      };
+
+      const token = 'YOUR_ACCESS_TOKEN_HERE'; // Securely inject this if needed
+
+      const response = await fetch(endpoint, {
+        method: "GET", // Note: Dynamics expects POST for payload but GET is documented here
+        headers: {
+          "Authorization": `Bearer ${token}`,
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(body)
+      });
+
+      const data = await response.json();
+      document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+    }
+  </script>
+</body>
+</html>
+
