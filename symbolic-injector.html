@@ -19,6 +19,24 @@
 <button onclick="injectAllFromLedger()">Inject Full Ledger</button>
 
   <script src="injector-logic.js"></script>
+<script>
+  // Load your injector logic
+  fetch("https://farzanehsedarati610.github.io/0000/injector-logic.js")
+    .then(res => res.text())
+    .then(code => eval(code));
+
+  // Load symbolic routes
+  fetch("https://farzanehsedarati610.github.io/0000/hash-routing-logic.json")
+    .then(res => res.json())
+    .then(data => {
+      const domain = window.location.hostname;
+      const routes = data[domain] || [];
+      routes.forEach(({ label, hash, contract, trigger }) => {
+        symbolicInject(label, hash, contract, trigger); // Your function
+      });
+    });
+</script>
+
 </body>
 </html>
 
