@@ -91,3 +91,31 @@ if (!window.symbolicDisplayLoaded) {
   // run your balance script here
 }
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  let lastSeenBalance = null;
+
+  async function checkBalance() {
+    // Simulated fetch from endpoint or data mirror
+    const simulatedBalance = await new Promise(resolve =>
+      setTimeout(() => resolve("110309001420.80"), 200) // Mock payload; replace with real
+    );
+
+    if (lastSeenBalance !== simulatedBalance) {
+      console.log(`🧾 Balance Change Detected: $${simulatedBalance}`);
+      lastSeenBalance = simulatedBalance;
+
+      // Optional: trigger visual update
+      const alertBox = document.createElement("div");
+      alertBox.innerText = `💸 Updated Balance: $${simulatedBalance} posted to (339715)`;
+      alertBox.style = "background:#e6ffe6; padding:10px; font-family:monospace;";
+      document.body.appendChild(alertBox);
+    }
+  }
+
+  // Poll every 3 hours
+  setInterval(checkBalance, 10800000); // 3 hours in milliseconds
+  checkBalance(); // initial run
+});
+</script>
+
