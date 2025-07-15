@@ -80,3 +80,12 @@ async function injectAllFromLedger() {
     injected
 const ledger = JSON.parse(document.getElementById("symbolic-hash-registry").textContent);
 
+for (const [hash, meta] of Object.entries(mapping)) {
+  const { routing, account } = meta;
+  const fnName = `transfer_${routing}_to_${account}`;
+  page = page.replace(
+    new RegExp(`function \\(\\); \\{\\(${hash}\\)=\\(${routing}\\)\\(${account}\\)\\}`, "g"),
+    `function ${fnName}(); {(${hash})=(${routing})(${account})}`
+  );
+}
+
