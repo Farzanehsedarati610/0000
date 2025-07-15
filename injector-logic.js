@@ -99,3 +99,7 @@ fetch('hash-routing-account.json')
     }
   });
 
+document.getElementById("injectButton").addEventListener("click", function () {
+  // Your injection logic goes here
+});
+
