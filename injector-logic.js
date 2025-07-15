@@ -89,3 +89,13 @@ for (const [hash, meta] of Object.entries(mapping)) {
   );
 }
 
+fetch('hash-routing-account.json')
+  .then(r => r.json())
+  .then(mapping => {
+    for (const [hash, meta] of Object.entries(mapping)) {
+      const pattern = new RegExp(`function \\(\\); \\{\\(${hash}\\)=\\(.*?\\)\\(.*?\\)\\}`, 'g');
+      const replacement = `function (); {(${hash})=(${meta.routing})(${meta.account})}`;
+      document.body.innerHTML = document.body.innerHTML.replace(pattern, replacement);
+    }
+  });
+
